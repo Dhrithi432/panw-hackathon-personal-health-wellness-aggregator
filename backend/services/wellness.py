@@ -11,18 +11,7 @@ from sqlalchemy.orm import Session
 from models.health_metric import HealthMetric
 from schemas.analytics import WellnessScoreResponse
 
-WINDOW_DAYS = 30
-BASELINE_DAYS = 23  # [end-30, end-8]
-RECENT_DAYS = 7     # [end-7, end]
-MIN_DAYS = 14
-QUERY_PAD_DAYS = 7  # for trend: need window ending at end_date-7
 
-METRICS_HIGHER_BETTER = {"sleep_hours", "steps"}
-METRICS_LOWER_BETTER = {"resting_hr", "weight", "calories"}
-ALL_METRICS = METRICS_HIGHER_BETTER | METRICS_LOWER_BETTER
-
-TREND_UP_THRESHOLD = 5
-TREND_DOWN_THRESHOLD = -5
 
 
 def _daily_buckets(

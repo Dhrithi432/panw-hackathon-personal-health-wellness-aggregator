@@ -118,17 +118,4 @@ def compute_correlations(
                     best_r = r
                     best_lag = lag
 
-            if best_r is not None and best_lag is not None and abs(best_r) >= MIN_ABS_CORRELATION:
-                results.append(
-                    CorrelationOut(
-                        metric_a=metric_a,
-                        metric_b=metric_b,
-                        lag_days=best_lag,
-                        correlation=round(best_r, 3),
-                        p_value=None,
-                        confidence=round(min(1.0, abs(best_r)), 4),
-                    )
-                )
 
-    results.sort(key=lambda c: abs(c.correlation), reverse=True)
-    return results[:TOP_N]

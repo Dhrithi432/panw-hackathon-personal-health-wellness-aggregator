@@ -148,5 +148,4 @@ def detect_anomalies(
                 anomalous.append((d, z))
         all_anomalies.extend(_merge_consecutive(metric_name, anomalous))
 
-    all_anomalies.sort(key=lambda a: a.start_ts, reverse=True)
-    return all_anomalies
+
